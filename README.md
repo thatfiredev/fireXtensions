@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/rosariopfernandes/fireXtensions.svg)](https://jitpack.io/#rosariopfernandes/fireXtensions)
+
 # fireXtensions (WIP)
 
 fireXtensions are a set of extension functions that aim to simplify the way the Firebase SDK for Android is used with Kotlin.
@@ -89,6 +91,22 @@ ref.child(pushKey).setValue(todo)
 ```
 val todo = Todo(1, "fireXtensions", "Don't forget to star this repo")
 val pushKey = ref.push(todo)
+```
+## Getting Started
+Step 1 - Add the jitpack maven in your root build.gradle at the end of repositories:
+```
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+Step 2 - Add the dependency to your app's build.gradle:
+```
+            dependencies {
+	        implementation 'com.github.rosariopfernandes:fireXtensions:0.2b'
+	}
 ```
 
 ## Contributing
