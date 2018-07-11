@@ -80,6 +80,36 @@ ref.observeSingleEvent<DataSnapshot> { dataSnapshot, error ->
         }
 ```
 ----
+#### Read Lists
+**Kotlin**
+```
+ref.addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val todos = ArrayList<Todo>()
+                for (snapshot in dataSnapshot.children) {
+                    val todo = dataSnapshot.getValue(Todo::class.java)
+                    todos.add(todo!!)
+                }
+                //Update the UI with received list
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                //print error.message
+            }
+        })
+```
+**fireXtensions**
+```
+ref.observeChildren<Todo> { todos, error ->
+            todos?.let {
+                //Update the UI with received list
+            }
+            error.let {
+                //print error.message
+            }
+        }
+```
+----
 #### Push a new object to list
 **Kotlin**
 ```
