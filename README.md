@@ -135,8 +135,8 @@ Step 1 - Add the jitpack maven in your root build.gradle at the end of repositor
 Step 2 - Add the dependency to your app's build.gradle:
 ```
     dependencies {
-	    implementation 'com.github.rosariopfernandes:fireXtensions:0.2b'
-	}
+	    implementation 'com.github.rosariopfernandes:fireXtensions:0.2'
+    }
 ```
 
 ## Contributing
