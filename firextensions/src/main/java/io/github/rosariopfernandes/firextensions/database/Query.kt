@@ -78,17 +78,19 @@ inline fun <reified T> DatabaseReference.observeSingleEvent(
  * Casts each child to the specified type.
  */
 inline fun <reified T> DatabaseReference.observeChildren(
-    crossinline action: (data: T?, error: DatabaseError?) -> Unit
+    crossinline action: (data: ArrayList<T>?, error: DatabaseError?) -> Unit
 ) {
     addValueEventListener(object: ValueEventListener {
         override fun onDataChange(dataSnapshot: DataSnapshot) {
+            val data = ArrayList<T>()
             for (snapshot in dataSnapshot.children) {
                 if (T::class.java == DataSnapshot::class.java) {
-                    action(dataSnapshot as T, null)
+                    data.add(snapshot as T)
                 } else {
-                    action(snapshot.getValue(T::class.java), null)
+                    data.add(snapshot.getValue(T::class.java)!!)
                 }
             }
+            action(data, null)
         }
 
         override fun onCancelled(error: DatabaseError) {
@@ -102,17 +104,19 @@ inline fun <reified T> DatabaseReference.observeChildren(
  * Casts each child to the specified type.
  */
 inline fun <reified T> DatabaseReference.observeSingleChildrenEvent(
-    crossinline action: (data: T?, error: DatabaseError?) -> Unit
+    crossinline action: (data: ArrayList<T>?, error: DatabaseError?) -> Unit
 ) {
     addListenerForSingleValueEvent(object: ValueEventListener {
         override fun onDataChange(dataSnapshot: DataSnapshot) {
+            val data = ArrayList<T>()
             for (snapshot in dataSnapshot.children) {
                 if (T::class.java == DataSnapshot::class.java) {
-                    action(dataSnapshot as T, null)
+                    data.add(snapshot as T)
                 } else {
-                    action(snapshot.getValue(T::class.java), null)
+                    data.add(snapshot.getValue(T::class.java)!!)
                 }
             }
+            action(data, null)
         }
 
         override fun onCancelled(error: DatabaseError) {
