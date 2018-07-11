@@ -34,7 +34,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         fab.setOnClickListener { _ ->
-
+            val dialogFragment = AddTodoDialogFragment()
+            dialogFragment.show(supportFragmentManager)
         }
     }
 }
