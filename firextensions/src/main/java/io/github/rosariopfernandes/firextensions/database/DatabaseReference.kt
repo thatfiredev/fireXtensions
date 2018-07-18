@@ -39,8 +39,8 @@ fun DatabaseReference.push(obj: Any): String {
 fun DatabaseReference.getFullPath(): String {
     var path = ref.key
     var parent = ref.parent
-    while(parent != null) {
-        if(parent.key != null)
+    while (parent != null) {
+        if (parent.key != null)
             path = "${parent.key}/$path"
         parent = parent.parent
     }
