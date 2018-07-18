@@ -2,10 +2,12 @@
 
 # fireXtensions
 
-fireXtensions are a set of extension functions that aim to simplify the way the Firebase SDK for Android is used with Kotlin.
+fireXtensions are a set of extension functions that aim to simplify the way the Firebase SDK for
+ Android is used with Kotlin.
 
 ### Realtime Database
-#### Read Data
+See all examples on the [Tutorial](tutorials/realtime-database.md).
+
 **Kotlin**
 ```kotlin
 ref.addValueEventListener(object: ValueEventListener {
@@ -30,7 +32,6 @@ ref.observe<DataSnapshot> { dataSnapshot, _ ->
 }
 ```
 ----
-#### Read Custom Objects
 **Kotlin**
 ```kotlin
 ref.addValueEventListener(object: ValueEventListener {
@@ -54,33 +55,7 @@ ref.observe<Todo> { todo, _ ->
 }
 ```
 ----
-#### Read Data Once
-**Kotlin**
-```kotlin
-ref.addListenerForSingleValueEvent(object: ValueEventListener {
-    override fun onDataChange(dataSnapshot: DataSnapshot) {
-        val data = dataSnapshot.getValue(String::class.java)
-        //Update the UI with received data
-    }
 
-    override fun onCancelled(error: DatabaseError) {
-        //print error.message
-    }
-})
-```
-**fireXtensions**
-```kotlin
-ref.observeSingleEvent<DataSnapshot> { dataSnapshot, error ->
-    dataSnapshot?.let {
-        //Update the UI with received data
-    }
-    error?.let {
-        //print error.message
-    }
-}
-```
-----
-#### Read Lists
 **Kotlin**
 ```kotlin
 ref.addValueEventListener(object: ValueEventListener {
@@ -109,19 +84,67 @@ ref.observeChildren<Todo> { todos, error ->
     }
 }
 ```
+More can be found on the [Tutorial](tutorials/realtime-database.md).
+
 ----
-#### Push a new object to list
+
+### Cloud Firestore
+See all examples on the [Tutorial](tutorials/cloud-firestore.md).
+
 **Kotlin**
 ```kotlin
-val todo = Todo("fireXtensions", "Don't forget to star this repo")
-val pushKey = ref.push().key!!
-ref.child(pushKey).setValue(todo)
+val docRef = db.collection("cities").document("SF")
+// Source can be CACHE, SERVER or DEFAULT
+docRef.get(Source.CACHE).addOnCompleteListener { task ->
+    if (task.isSuccessful()) {
+        val document = task.result
+        if (document.exists()) {
+            Log.d(TAG, "DocumentSnapshot data: " + document.data)
+        } else {
+            Log.d(TAG, "No such document")
+        }
+    } else {
+        Log.d(TAG, "get failed with ", task.exception)
+    }
+}
 ```
+
 **fireXtensions**
 ```kotlin
-val todo = Todo("fireXtensions", "Don't forget to star this repo")
-val pushKey = ref.push(todo)
+// Source can be CACHE, SERVER or DEFAULT
+docRef.getDocument<DocumentSnapshot>(Source.CACHE) { document, exception ->
+    document?.let {
+        Log.d(TAG, "DocumentSnapshot data: " + document.data)
+    }
+    exception?.let {
+        Log.d(TAG, "get failed with ", exception)
+    }
+}
 ```
+----
+
+**Kotlin**
+```kotlin
+val docRef = db.collection("cities").document("BJ")
+docRef.get().addOnCompleteListener { task ->
+    if (task.isSuccessful()) {
+        val city = task.result.toObject(City::class.java)
+        //Update UI with city
+    }
+}
+```
+
+**fireXtensions**
+```kotlin
+docRef.getDocument<City>() { city, _ ->
+    city?.let {
+        //update UI with city
+    }
+}
+```
+More can be found on the [Tutorial](tutorials/cloud-firestore.md).
+
+
 ## Getting Started
 Step 1 - Add the jitpack maven in your root build.gradle at the end of repositories:
 ```gradle
@@ -135,16 +158,18 @@ Step 1 - Add the jitpack maven in your root build.gradle at the end of repositor
 Step 2 - Add the dependency to your app's build.gradle:
 ```gradle
     dependencies {
-        implementation 'com.github.rosariopfernandes:fireXtensions:0.2'
+        implementation 'com.github.rosariopfernandes:fireXtensions:0.3.0'
     }
 ```
 
 ## Contributing
-When contributing to this repository, please first discuss the change you wish to make, via issue, with the owners of this repository before making a change.
+When contributing to this repository, please first discuss the change you wish to make, via issue,
+ with the owners of this repository before making a change.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 * Inspired by the [Android KTX](https://github.com/android/android-ktx)
-* Some function names are based on the [Official Firebase SDK for iOS](https://firebase.google.com/docs/database/ios/read-and-write).
+* Some function names are based on the
+ [Official Firebase SDK for iOS](https://firebase.google.com/docs/database/ios/read-and-write).
