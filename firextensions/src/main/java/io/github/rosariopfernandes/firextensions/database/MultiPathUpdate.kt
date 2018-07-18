@@ -24,25 +24,43 @@
 
 package io.github.rosariopfernandes.firextensions.database
 
+import com.google.common.base.Preconditions
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
-/**
- * Create a reference to an auto-generated child location and
- * set the given data.
- */
-fun DatabaseReference.push(obj: Any): String {
-    val key = push().key!!
-    child(key).setValue(obj)
-    return key
-}
+class MultiPathUpdate(var database: FirebaseDatabase) {
 
-fun DatabaseReference.getFullPath(): String {
-    var path = ref.key
-    var parent = ref.parent
-    while(parent != null) {
-        if(parent.key != null)
-            path = "${parent.key}/$path"
-        parent = parent.parent
+    private val childUpdates = HashMap<String, Any?>()
+    private var commited = false
+
+    fun update(key: String, value: Any?) {
+        Preconditions.checkState(
+                !commited, "Cannot modify a MultiPathUpdate that has already been committed.")
+        childUpdates[key] = value
     }
-    return "/${path ?: ""}"
+
+    fun push(ref: DatabaseReference, value: Any) {
+        val pushKey = ref.push().key!!
+        update(ref, pushKey, value)
+    }
+
+    fun setValue(ref: DatabaseReference, value: Any) {
+        update(ref.getFullPath(), value)
+    }
+
+    fun update(ref: DatabaseReference, key: String, value: Any) {
+        update(ref.getFullPath() + "/$key", value)
+    }
+
+    fun removeValue(ref: DatabaseReference) {
+        update(ref.getFullPath(), null)
+    }
+
+    fun commit() {
+        Preconditions.checkState(
+                childUpdates.size != 0,
+                "Either a push or update must be set.")
+        database.reference.updateChildren(childUpdates)
+        commited = true
+    }
 }

@@ -32,9 +32,9 @@ import com.google.firebase.database.ValueEventListener
 
 /** Listens for updates on the connection state */
 inline fun FirebaseDatabase.checkConnectionState(
-        crossinline action: (isConnected: Boolean) -> Unit
-){
-    getReference(".info/connected").addValueEventListener(object: ValueEventListener{
+    crossinline action: (isConnected: Boolean) -> Unit
+) {
+    getReference(".info/connected").addValueEventListener(object: ValueEventListener {
         override fun onDataChange(dataSnapshot: DataSnapshot) {
             val isConnected = dataSnapshot.getValue(Boolean::class.java)
             action(isConnected ?: false)
@@ -45,4 +45,12 @@ inline fun FirebaseDatabase.checkConnectionState(
             action(false)
         }
     })
+}
+
+inline fun FirebaseDatabase.runMultiPathUpdate(
+    action: MultiPathUpdate.() -> Unit
+) {
+    val updates = MultiPathUpdate(this)
+    action(updates)
+    updates.commit()
 }
