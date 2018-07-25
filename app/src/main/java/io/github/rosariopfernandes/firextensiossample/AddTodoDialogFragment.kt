@@ -25,10 +25,11 @@ class AddTodoDialogFragment : androidx.fragment.app.DialogFragment() {
                     val title = tilTitle.editText!!.text.toString()
                     val text = tilText.editText!!.text.toString()
                     val todo = Todo(title, text)
-                    val pushKey = ref.push(todo)
-                    Snackbar.make(activity!!.currentFocus,
-                            "To-do $pushKey added", Snackbar.LENGTH_LONG)
-                            .show()
+                    ref.push(todo) { pushKey ->
+                        Snackbar.make(activity!!.currentFocus,
+                                "To-do $pushKey added", Snackbar.LENGTH_LONG)
+                                .show()
+                    }
                 })
         builder.setNegativeButton(R.string.action_cancel, { _, _ ->
         })

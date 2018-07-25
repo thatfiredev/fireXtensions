@@ -36,6 +36,24 @@ fun DatabaseReference.push(obj: Any): String {
     return key
 }
 
+inline fun DatabaseReference.push(
+        obj: Any,
+        crossinline action: (key: String?) -> Unit
+) {
+    val key = push().key
+    if (key == null) {
+        action(null)
+    } else {
+        child(key).setValue(obj).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                action(key)
+            } else {
+                action(null)
+            }
+        }
+    }
+}
+
 fun DatabaseReference.getFullPath(): String {
     var path = ref.key
     var parent = ref.parent
