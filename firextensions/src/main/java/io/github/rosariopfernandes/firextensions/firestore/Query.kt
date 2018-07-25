@@ -24,8 +24,8 @@
 
 package io.github.rosariopfernandes.firextensions.firestore
 
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.QueryDocumentSnapshot
 import com.google.firebase.firestore.Source
 
 inline fun <reified T> Query.getDocuments(
@@ -44,7 +44,7 @@ inline fun <reified T> Query.getDocuments(
         if (task.isSuccessful) {
             val docs = ArrayList<T>()
             for (snapshot in task.result) {
-                if (T::class.java == DocumentSnapshot::class.java) {
+                if (T::class.java == QueryDocumentSnapshot::class.java) {
                     docs.add(snapshot as T)
                 } else {
                     docs.add(snapshot.toObject(T::class.java))
