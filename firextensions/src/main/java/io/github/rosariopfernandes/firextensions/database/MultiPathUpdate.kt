@@ -53,7 +53,7 @@ class MultiPathUpdate(var database: FirebaseDatabase) {
     }
 
     fun removeValue(ref: DatabaseReference) {
-        update(ref.getFullPath(), null)
+        ref.removeValue()
     }
 
     fun commit() {
