@@ -24,6 +24,7 @@
 
 package io.github.rosariopfernandes.firextensions.database
 
+import com.google.android.gms.common.internal.Preconditions
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
