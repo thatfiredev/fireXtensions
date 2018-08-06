@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.FirebaseDatabase
+import io.github.rosariopfernandes.firextensions.database.checkConnectionState
 import io.github.rosariopfernandes.firextensions.database.observeChildren
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -21,6 +22,10 @@ class MainActivity : AppCompatActivity() {
         todoAdapter = TodoAdapter(null)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = todoAdapter
+
+        FirebaseDatabase.getInstance().checkConnectionState { isConnected ->
+            Toast.makeText(this, "$isConnected", Toast.LENGTH_LONG).show()
+        }
 
         ref.observeChildren<Todo> { todos, error ->
             todos?.let {
