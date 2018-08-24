@@ -42,11 +42,15 @@ inline fun <reified T> DocumentReference.getDocument(
 ) {
     get(source).addOnCompleteListener { task ->
         if (task.isSuccessful) {
-
-            if (T::class.java == DocumentSnapshot::class.java) {
-                action(task.result as T, null)
+            val documentSnapshot = task.result
+            if (documentSnapshot.exists()) {
+                if (T::class.java == DocumentSnapshot::class.java) {
+                    action(task.result as T, null)
+                } else {
+                    action(task.result.toObject(T::class.java)!!, null)
+                }
             } else {
-                action(task.result.toObject(T::class.java)!!, null)
+                action(null, NullPointerException("Document not found"))
             }
 
         } else {
