@@ -131,6 +131,7 @@ If you do not need to read any documents in your operation set, you can execute 
  write operations as a single batch that contains any combination of `set()`, `update()`,
  or `delete()` operations. A batch of writes completes atomically and can write to multiple
  documents.
+
 **Kotlin**
 ```kotlin
 val db = FirebaseFirestore.getInstance()

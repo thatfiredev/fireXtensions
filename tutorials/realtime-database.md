@@ -139,11 +139,12 @@ val pushKey = usersRef.push(user)
 
 ### Multi-path updates
 Most apps that use the Realtime Database require executing 2 or more operations
- simultaneously. But when doing so, there's a risk that the one of the operation might not
+ simultaneously. But when doing so, there's a risk that one of the operation might not
  succeed, leading to corrupted data.
 
  To avoid that, we can use multi-path updates - an atomic (all or nothing) operation. Either all
  operations succeed, or no change is made to the database.
+
 **Kotlin**
 ```kotlin
 val pushKey = rootRef.child("posts").push().key!!
