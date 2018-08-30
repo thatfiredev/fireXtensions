@@ -3,9 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/database/database.iml" filepath="$PROJECT_DIR$/database/database.iml" />
       <module fileurl="file://$PROJECT_DIR$/fireXtensiosSample.iml" filepath="$PROJECT_DIR$/fireXtensiosSample.iml" />
-      <module fileurl="file://$PROJECT_DIR$/firextensions-database/firextensions-database.iml" filepath="$PROJECT_DIR$/firextensions-database/firextensions-database.iml" />
-      <module fileurl="file://$PROJECT_DIR$/firextensions-firestore/firextensions-firestore.iml" filepath="$PROJECT_DIR$/firextensions-firestore/firextensions-firestore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/firestore/firestore.iml" filepath="$PROJECT_DIR$/firestore/firestore.iml" />
     </modules>
   </component>
 </project>
