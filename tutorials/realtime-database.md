@@ -1,5 +1,13 @@
 # Tutorial: Realtime Database
 
+## Getting Started
+Add the dependency to your `build.gradle` (app) file, replacing `$latest_version` with the latest fireXtensions version available:
+```gradle
+    dependencies {
+        // ...
+        implementation 'com.github.rosariopfernandes.fireXtensions:database:$latest_version'
+    }
+```
 
 ## Reading Data
 
