@@ -158,12 +158,14 @@ Step 1 - Add the jitpack maven in your root build.gradle at the end of repositor
 Step 2 - Add **one** of the dependencies to your app's build.gradle:
 ```gradle
     dependencies {
-        // Import the whole library
-        implementation 'com.github.rosariopfernandes:fireXtensions:0.3.3'
-        // Import database extensions only
-        implementation 'com.github.rosariopfernandes.fireXtensions:database:0.3.3'
+        // Import the whole library OR
+        implementation 'com.github.rosariopfernandes:fireXtensions:0.3.4'
+
+        // Import database extensions only OR
+        implementation 'com.github.rosariopfernandes.fireXtensions:database:0.3.4'
+
         // Import firestore extensions only
-        implementation 'com.github.rosariopfernandes.fireXtensions:firestore:0.3.3'
+        implementation 'com.github.rosariopfernandes.fireXtensions:firestore:0.3.4'
     }
 ```
 
