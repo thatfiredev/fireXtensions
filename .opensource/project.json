@@ -1,0 +1,14 @@
+{
+  "name": "fireXtensions",
+  "platforms": [
+    "Android"
+  ],
+  "content": "README.md",
+  "pages" : [
+    "tutorials/realtime-database.md",
+    "tutorials/cloud-firestore.md"
+  ],
+  "related": [
+
+  ]
+}
