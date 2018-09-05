@@ -2,7 +2,7 @@
 
 # fireXtensions
 
-# Introduction
+## Introduction
 
 fireXtensions are a set of Kotlin extension functions that aim to simplify the way you use the
  Firebase SDK for Android.
