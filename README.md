@@ -2,8 +2,10 @@
 
 # fireXtensions
 
-fireXtensions are a set of extension functions that aim to simplify the way the Firebase SDK for
- Android is used with Kotlin.
+# Introduction
+
+fireXtensions are a set of Kotlin extension functions that aim to simplify the way you use the
+ Firebase SDK for Android.
 
 ### Realtime Database
 See all examples on the [Tutorial](tutorials/realtime-database.md).
@@ -158,13 +160,13 @@ Step 1 - Add the jitpack maven in your root build.gradle at the end of repositor
 Step 2 - Add **one** of the dependencies to your app's build.gradle:
 ```gradle
     dependencies {
-        // Import the whole library OR
+        // You can either import the whole library
         implementation 'com.github.rosariopfernandes:fireXtensions:0.3.4'
 
-        // Import database extensions only OR
+        // or import database extensions only
         implementation 'com.github.rosariopfernandes.fireXtensions:database:0.3.4'
 
-        // Import firestore extensions only
+        // or import firestore extensions only
         implementation 'com.github.rosariopfernandes.fireXtensions:firestore:0.3.4'
     }
 ```
@@ -177,6 +179,6 @@ When contributing to this repository, please first discuss the change you wish t
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
-* Inspired by the [Android KTX](https://github.com/android/android-ktx)
+* Inspired by [Android KTX](https://github.com/android/android-ktx)
 * Some function names are based on the
  [Official Firebase SDK for iOS](https://firebase.google.com/docs/database/ios/read-and-write).
