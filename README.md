@@ -172,8 +172,8 @@ Step 2 - Add **one** of the dependencies to your app's build.gradle:
 ```
 
 ## Contributing
-When contributing to this repository, please first discuss the change you wish to make, via issue,
- with the owners of this repository before making a change.
+Anyone and everyone is welcome to contribute. Please take a moment to
+review the [contributing guidelines](CONTRIBUTING.md).
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
