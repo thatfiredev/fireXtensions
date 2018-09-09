@@ -1,3 +1,6 @@
+[![FirebaseOpensource.com](https://img.shields.io/badge/Docs-firebaseopensource.com-blue.svg)](
+https://firebaseopensource.com/projects/rosariopfernandes/firextensions
+)
 [![](https://jitpack.io/v/rosariopfernandes/fireXtensions.svg)](https://jitpack.io/#rosariopfernandes/fireXtensions)
 
 # fireXtensions
