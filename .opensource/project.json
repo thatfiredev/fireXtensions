@@ -4,12 +4,12 @@
     "Android"
   ],
   "content": "README.md",
-  "pages" : [
-    "tutorials/realtime-database.md",
-    "tutorials/cloud-firestore.md",
-    "CONTRIBUTING.md"
-  ],
+  "pages" : {
+    "tutorials/realtime-database.md": "Realtime Database Tutorial",
+    "tutorials/cloud-firestore.md": "Cloud Firestore Tutorial",
+    "CONTRIBUTING.md": "Contributing Guidelines"
+  },
   "related": [
-
+    "firebase/firebase-android-sdk"
   ]
 }
