@@ -28,34 +28,67 @@ import com.google.android.gms.common.internal.Preconditions
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
+/**
+ * Allows execution of multiple operations atomically.
+ */
 class MultiPathUpdate(var database: FirebaseDatabase) {
 
     private val childUpdates = HashMap<String, Any?>()
     private var commited = false
 
-    fun update(key: String, value: Any?) {
+    /**
+     * Replaces the object at the specified path with the object
+     * specified as value. If the object already exists, it will be updated.
+     * If the object does not exist, it will be created.
+     * @param path the path to the reference to be updated.
+     * @param value the new value for that reference.
+     */
+    fun update(path: String, value: Any?) {
         Preconditions.checkState(
                 !commited, "Cannot modify a MultiPathUpdate that has already been committed.")
-        childUpdates[key] = value
+        childUpdates[path] = value
     }
 
-    fun push(ref: DatabaseReference, value: Any) {
+    /**
+     * Create a reference to an auto-generated child location and
+     * set the given data.
+     * @param ref
+     * @param data the data to be added.
+     */
+    fun push(ref: DatabaseReference, data: Any) {
         val pushKey = ref.push().key!!
-        update(ref, pushKey, value)
+        update(ref, pushKey, data)
     }
 
+    /**
+     * Creates an object at the specified path with the value
+     * specified. If the object already exists, it will be overwritten.
+     */
     fun setValue(ref: DatabaseReference, value: Any) {
         update(ref.getFullPath(), value)
     }
 
+    /**
+     * Updates the object that has the given key at the given reference.
+     * @param ref the DatabaseReference where we can find the object to be updated.
+     * @param key the key of the object that should be updated
+     * @param value the new value for that object.
+     */
     fun update(ref: DatabaseReference, key: String, value: Any) {
         update(ref.getFullPath() + "/$key", value)
     }
 
+    /**
+     * Deletes any object (and it's child) found at that DatabaseReference.
+     * If the reference contains a single object, the reference will also be deleted.
+     */
     fun removeValue(ref: DatabaseReference) {
         ref.removeValue()
     }
 
+    /**
+     * Executes the atomic operation. This should be the last method called.
+     */
     fun commit() {
         Preconditions.checkState(
                 childUpdates.size != 0,

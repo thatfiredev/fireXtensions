@@ -28,6 +28,10 @@ import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.Source
 
+/**
+ * Returns the document at that location.
+ * Automatically casts to the specified data type.
+ */
 inline fun <reified T> DocumentReference.getDocument(
     crossinline action: (document: T?, exception: Exception?) -> Unit
 ) {
@@ -36,6 +40,12 @@ inline fun <reified T> DocumentReference.getDocument(
     }
 }
 
+/**
+ * Returns the document at that location.
+ * Automatically casts to the specified data type.
+ * @param source Where to read the document from. Can be: Source.DEFAULT, Source.CACHE
+ * or Source.SERVER
+ */
 inline fun <reified T> DocumentReference.getDocument(
     source: Source,
     crossinline action: (document: T?, exception: Exception?) -> Unit
@@ -59,6 +69,11 @@ inline fun <reified T> DocumentReference.getDocument(
     }
 }
 
+/**
+ * Permanently deletes the document.
+ * The lambda argument is an exception if the delete fails, or
+ * null if it succeeds.
+ */
 inline fun DocumentReference.delete(
     crossinline action: (exception: Exception?) -> Unit
 ) {

@@ -30,7 +30,11 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-/** Listens for updates on the connection state */
+/**
+ * Listens for updates on the database connection state.
+ * The boolean argument of the lambda function shows whether it's
+ * connected (true) or not(false).
+ */
 inline fun FirebaseDatabase.checkConnectionState(
     crossinline action: (isConnected: Boolean) -> Unit
 ) {
@@ -47,6 +51,10 @@ inline fun FirebaseDatabase.checkConnectionState(
     })
 }
 
+/**
+ * Executes a group of operations atomically.
+ * For supported operations, @see MultiPathUpdate
+ */
 inline fun FirebaseDatabase.runMultiPathUpdate(
     action: MultiPathUpdate.() -> Unit
 ) {
