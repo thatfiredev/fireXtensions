@@ -174,6 +174,8 @@ Step 2 - Add **one** of the dependencies to your app's build.gradle:
     }
 ```
 
+Reference Docs: [rosariopfernandes.me/fireXtensions](http://rosariopfernandes.me/fireXtensions/)
+
 ## Contributing
 Anyone and everyone is welcome to contribute. Please take a moment to
 review the [contributing guidelines](CONTRIBUTING.md).
