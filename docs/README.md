@@ -28,5 +28,7 @@ To generate the documentation, run this command on the project root:
 ./gradlew dokka
 ```
 
-Also remember to read our [Contributing Guidelines](/CONTRIBUTING.md) before making any changes.
+Also remember to read our [Contributing Guidelines]
+(https://github.com/rosariopfernandes/fireXtensions/blob/master/CONTRIBUTING.md)
+ before making any changes.
  Thank you
