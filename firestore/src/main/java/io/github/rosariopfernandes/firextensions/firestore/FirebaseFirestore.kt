@@ -27,6 +27,10 @@ package io.github.rosariopfernandes.firextensions.firestore
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.WriteBatch
 
+/**
+ * Executes a group of operations atomically.
+ * Supported operations: set(), update() and delete().
+ */
 inline fun FirebaseFirestore.writeBatch(
     action: WriteBatch.() -> Unit
 ) {

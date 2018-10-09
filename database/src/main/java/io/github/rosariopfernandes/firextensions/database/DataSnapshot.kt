@@ -26,10 +26,16 @@ package io.github.rosariopfernandes.firextensions.database
 
 import com.google.firebase.database.DataSnapshot
 
+/**
+ * Casts the DataSnapshot to the specified data type.
+ */
 inline fun <reified T> DataSnapshot.getValue(): T? {
     return getValue(T::class.java)
 }
 
+/**
+ * Retrieves the children of a DataSnapshot and adds to an ArrayList.
+ */
 inline fun <reified T> DataSnapshot.getChildrenAsList(): ArrayList<T> {
     val list = ArrayList<T>()
     for (child in children) {

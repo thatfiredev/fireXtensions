@@ -28,6 +28,9 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QueryDocumentSnapshot
 import com.google.firebase.firestore.Source
 
+/**
+ * Returns a list of documents from the specified collection.
+ */
 inline fun <reified T> Query.getDocuments(
     crossinline action: (documents: ArrayList<T>?, exception: Exception?) -> Unit
 ) {
@@ -36,6 +39,11 @@ inline fun <reified T> Query.getDocuments(
     }
 }
 
+/**
+ * Returns a list of documents from the specified collection.
+ * @param source where to read the documents from. Can be: Source.DEFAULT, Source.CACHE
+ * or Source.SERVER
+ */
 inline fun <reified T> Query.getDocuments(
     source: Source,
     crossinline action: (documents: ArrayList<T>?, exception: Exception?) -> Unit

@@ -1,0 +1,97 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>MultiPathUpdate - database</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">database</a>&nbsp;/&nbsp;<a href="../index.html">io.github.rosariopfernandes.firextensions.database</a>&nbsp;/&nbsp;<a href="./index.html">MultiPathUpdate</a><br/>
+<br/>
+<h1>MultiPathUpdate</h1>
+<code><span class="keyword">class </span><span class="identifier">MultiPathUpdate</span></code>
+<p>Allows execution of multiple operations atomically.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">MultiPathUpdate</span><span class="symbol">(</span><span class="identifier" id="io.github.rosariopfernandes.firextensions.database.MultiPathUpdate$<init>(com.google.firebase.database.FirebaseDatabase)/database">database</span><span class="symbol">:</span>&nbsp;<span class="identifier">FirebaseDatabase</span><span class="symbol">)</span></code>
+<p>Allows execution of multiple operations atomically.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="database.html">database</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">database</span><span class="symbol">: </span><span class="identifier">FirebaseDatabase</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="commit.html">commit</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">commit</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Executes the atomic operation. This should be the last method called.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="push.html">push</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">push</span><span class="symbol">(</span><span class="identifier" id="io.github.rosariopfernandes.firextensions.database.MultiPathUpdate$push(com.google.firebase.database.DatabaseReference, kotlin.Any)/ref">ref</span><span class="symbol">:</span>&nbsp;<span class="identifier">DatabaseReference</span><span class="symbol">, </span><span class="identifier" id="io.github.rosariopfernandes.firextensions.database.MultiPathUpdate$push(com.google.firebase.database.DatabaseReference, kotlin.Any)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Create a reference to an auto-generated child location and
+set the given data.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="remove-value.html">removeValue</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">removeValue</span><span class="symbol">(</span><span class="identifier" id="io.github.rosariopfernandes.firextensions.database.MultiPathUpdate$removeValue(com.google.firebase.database.DatabaseReference)/ref">ref</span><span class="symbol">:</span>&nbsp;<span class="identifier">DatabaseReference</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Deletes any object (and it's child) found at that DatabaseReference.
+If the reference contains a single object, the reference will also be deleted.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="set-value.html">setValue</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">setValue</span><span class="symbol">(</span><span class="identifier" id="io.github.rosariopfernandes.firextensions.database.MultiPathUpdate$setValue(com.google.firebase.database.DatabaseReference, kotlin.Any)/ref">ref</span><span class="symbol">:</span>&nbsp;<span class="identifier">DatabaseReference</span><span class="symbol">, </span><span class="identifier" id="io.github.rosariopfernandes.firextensions.database.MultiPathUpdate$setValue(com.google.firebase.database.DatabaseReference, kotlin.Any)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Creates an object at the specified path with the value
+specified. If the object already exists, it will be overwritten.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="update.html">update</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">update</span><span class="symbol">(</span><span class="identifier" id="io.github.rosariopfernandes.firextensions.database.MultiPathUpdate$update(kotlin.String, kotlin.Any)/path">path</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="io.github.rosariopfernandes.firextensions.database.MultiPathUpdate$update(kotlin.String, kotlin.Any)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Replaces the object at the specified path with the object
+specified as value. If the object already exists, it will be updated.
+If the object does not exist, it will be created.</p>
+<code><span class="keyword">fun </span><span class="identifier">update</span><span class="symbol">(</span><span class="identifier" id="io.github.rosariopfernandes.firextensions.database.MultiPathUpdate$update(com.google.firebase.database.DatabaseReference, kotlin.String, kotlin.Any)/ref">ref</span><span class="symbol">:</span>&nbsp;<span class="identifier">DatabaseReference</span><span class="symbol">, </span><span class="identifier" id="io.github.rosariopfernandes.firextensions.database.MultiPathUpdate$update(com.google.firebase.database.DatabaseReference, kotlin.String, kotlin.Any)/key">key</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="io.github.rosariopfernandes.firextensions.database.MultiPathUpdate$update(com.google.firebase.database.DatabaseReference, kotlin.String, kotlin.Any)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Updates the object that has the given key at the given reference.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

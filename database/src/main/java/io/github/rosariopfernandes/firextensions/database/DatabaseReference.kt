@@ -36,6 +36,11 @@ fun DatabaseReference.push(obj: Any): String {
     return key
 }
 
+/**
+ * Create a reference to an auto-generated child location and
+ * set the given data. The auto-generated key is the argument
+ * of the lambda function.
+ */
 inline fun DatabaseReference.push(
         obj: Any,
         crossinline action: (key: String?) -> Unit
@@ -54,6 +59,10 @@ inline fun DatabaseReference.push(
     }
 }
 
+/**
+ * Returns the full path of the current reference.
+ * The root is "/".
+ */
 fun DatabaseReference.getFullPath(): String {
     var path = ref.key
     var parent = ref.parent
