@@ -6,7 +6,8 @@
   "content": "README.md",
   "pages" : {
     "tutorials/realtime-database.md": "Realtime Database Tutorial",
-    "tutorials/cloud-firestore.md": "Cloud Firestore Tutorial"
+    "tutorials/cloud-firestore.md": "Cloud Firestore Tutorial",
+    "docs/README.md": "Reference Docs"
   },
   "related": [
     "firebase/firebase-android-sdk"
@@ -14,7 +15,7 @@
   "tabs": [
     {
       "title": "Reference Docs",
-      "url": "http://rosariopfernandes.me/fireXtensions/"
+      "href": "http://rosariopfernandes.me/fireXtensions/"
     }
   ]
 }
