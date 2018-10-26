@@ -24,8 +24,8 @@ class TodoAdapter(var todos: ArrayList<Todo>?) : RecyclerView.Adapter<TodoAdapte
     }
 
     inner class TodoViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        var tvTitle:TextView? = null
-        var tvText:TextView? = null
+        var tvTitle: TextView? = null
+        var tvText: TextView? = null
         init {
             tvTitle = v.findViewById(R.id.tvTitle)
             tvText = v.findViewById(R.id.tvText)

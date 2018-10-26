@@ -36,9 +36,9 @@ import com.google.firebase.database.ValueEventListener
 inline fun <reified T> DatabaseReference.observe(
     crossinline action: (data: T?, error: DatabaseError?) -> Unit
 ) {
-    addValueEventListener(object: ValueEventListener {
+    addValueEventListener(object : ValueEventListener {
         override fun onDataChange(dataSnapshot: DataSnapshot) {
-            if(T::class.java == DataSnapshot::class.java) {
+            if (T::class.java == DataSnapshot::class.java) {
                 action(dataSnapshot as T, null)
             } else {
                 action(dataSnapshot.getValue(T::class.java), null)
@@ -58,9 +58,9 @@ inline fun <reified T> DatabaseReference.observe(
 inline fun <reified T> DatabaseReference.observeSingleEvent(
     crossinline action: (data: T?, error: DatabaseError?) -> Unit
 ) {
-    addListenerForSingleValueEvent(object: ValueEventListener {
+    addListenerForSingleValueEvent(object : ValueEventListener {
         override fun onDataChange(dataSnapshot: DataSnapshot) {
-            if(T::class.java == DataSnapshot::class.java) {
+            if (T::class.java == DataSnapshot::class.java) {
                 action(dataSnapshot as T, null)
             } else {
                 action(dataSnapshot.getValue(T::class.java), null)
@@ -80,7 +80,7 @@ inline fun <reified T> DatabaseReference.observeSingleEvent(
 inline fun <reified T> DatabaseReference.observeChildren(
     crossinline action: (data: ArrayList<T>?, error: DatabaseError?) -> Unit
 ) {
-    addValueEventListener(object: ValueEventListener {
+    addValueEventListener(object : ValueEventListener {
         override fun onDataChange(dataSnapshot: DataSnapshot) {
             val data = ArrayList<T>()
             for (snapshot in dataSnapshot.children) {
@@ -106,7 +106,7 @@ inline fun <reified T> DatabaseReference.observeChildren(
 inline fun <reified T> DatabaseReference.observeSingleChildrenEvent(
     crossinline action: (data: ArrayList<T>?, error: DatabaseError?) -> Unit
 ) {
-    addListenerForSingleValueEvent(object: ValueEventListener {
+    addListenerForSingleValueEvent(object : ValueEventListener {
         override fun onDataChange(dataSnapshot: DataSnapshot) {
             val data = ArrayList<T>()
             for (snapshot in dataSnapshot.children) {

@@ -42,8 +42,8 @@ fun DatabaseReference.push(obj: Any): String {
  * of the lambda function.
  */
 inline fun DatabaseReference.push(
-        obj: Any,
-        crossinline action: (key: String?) -> Unit
+    obj: Any,
+    crossinline action: (key: String?) -> Unit
 ) {
     val key = push().key
     if (key == null) {

@@ -62,7 +62,6 @@ inline fun <reified T> DocumentReference.getDocument(
             } else {
                 action(null, NullPointerException("Document not found"))
             }
-
         } else {
             action(null, task.exception)
         }

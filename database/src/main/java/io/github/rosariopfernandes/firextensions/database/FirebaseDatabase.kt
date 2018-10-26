@@ -38,7 +38,7 @@ import com.google.firebase.database.ValueEventListener
 inline fun FirebaseDatabase.checkConnectionState(
     crossinline action: (isConnected: Boolean) -> Unit
 ) {
-    getReference(".info/connected").addValueEventListener(object: ValueEventListener {
+    getReference(".info/connected").addValueEventListener(object : ValueEventListener {
         override fun onDataChange(dataSnapshot: DataSnapshot) {
             val isConnected = dataSnapshot.getValue(Boolean::class.java)
             action(isConnected ?: false)
