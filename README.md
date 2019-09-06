@@ -3,7 +3,18 @@ https://firebaseopensource.com/projects/rosariopfernandes/firextensions
 )
 [![](https://jitpack.io/v/rosariopfernandes/fireXtensions.svg)](https://jitpack.io/#rosariopfernandes/fireXtensions)
 
-# fireXtensions
+# fireXtensions [DEPRECATED]
+
+**THIS LIBRARY IS NOW DEPRECATED IN FAVOR OF THE
+ [OFFICIAL FIREBASE KTX LIBRARIES](https://firebaseopensource.com/projects/firebase/firebase-android-sdk/#kotlin_extensions).
+
+ PLEASE NOTE THAT NOT ALL THE FIREXTENSIONS ARE PRESENT IN THE OFFICIAL KTX, THAT'S BECAUSE SOME
+ FIREXTENSIONS WOULD CAUSE MEMORY LEAKS WHILE OTHER SIMPLY DID NOT ADD MUCH VALUE TO THE SDK. IF YOU FIND
+ A FIREXTENSION WITH NO CORRESPONDING KTX, YOU'LL HAVE TO STICK TO THE OFFICIAL KOTLIN USAGE.
+ APOLOGIES FOR THAT.
+
+ THANKS FOR EVERYONE WHO CONTRIBUTED, SUPPORTED OR USED FIREXTENSIONS!
+ **
 
 ## Introduction
 
