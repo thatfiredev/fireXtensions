@@ -31,6 +31,7 @@ import com.google.firebase.database.FirebaseDatabase
 /**
  * Allows execution of multiple operations atomically.
  */
+@Deprecated("fireXtensions database have been deprecated in favor of Firebase KTX")
 class MultiPathUpdate(var database: FirebaseDatabase) {
 
     private val childUpdates = HashMap<String, Any?>()
@@ -43,6 +44,7 @@ class MultiPathUpdate(var database: FirebaseDatabase) {
      * @param path the path to the reference to be updated.
      * @param value the new value for that reference.
      */
+    @Deprecated("fireXtensions database have been deprecated in favor of Firebase KTX")
     fun update(path: String, value: Any?) {
         Preconditions.checkState(
                 !commited, "Cannot modify a MultiPathUpdate that has already been committed.")
@@ -55,6 +57,7 @@ class MultiPathUpdate(var database: FirebaseDatabase) {
      * @param ref
      * @param data the data to be added.
      */
+    @Deprecated("fireXtensions database have been deprecated in favor of Firebase KTX")
     fun push(ref: DatabaseReference, data: Any) {
         val pushKey = ref.push().key!!
         update(ref, pushKey, data)
@@ -64,6 +67,7 @@ class MultiPathUpdate(var database: FirebaseDatabase) {
      * Creates an object at the specified path with the value
      * specified. If the object already exists, it will be overwritten.
      */
+    @Deprecated("fireXtensions database have been deprecated in favor of Firebase KTX")
     fun setValue(ref: DatabaseReference, value: Any) {
         update(ref.getFullPath(), value)
     }
@@ -74,6 +78,7 @@ class MultiPathUpdate(var database: FirebaseDatabase) {
      * @param key the key of the object that should be updated
      * @param value the new value for that object.
      */
+    @Deprecated("fireXtensions database have been deprecated in favor of Firebase KTX")
     fun update(ref: DatabaseReference, key: String, value: Any) {
         update(ref.getFullPath() + "/$key", value)
     }
@@ -82,6 +87,7 @@ class MultiPathUpdate(var database: FirebaseDatabase) {
      * Deletes any object (and it's child) found at that DatabaseReference.
      * If the reference contains a single object, the reference will also be deleted.
      */
+    @Deprecated("fireXtensions database have been deprecated in favor of Firebase KTX")
     fun removeValue(ref: DatabaseReference) {
         ref.removeValue()
     }
@@ -89,6 +95,7 @@ class MultiPathUpdate(var database: FirebaseDatabase) {
     /**
      * Executes the atomic operation. This should be the last method called.
      */
+    @Deprecated("fireXtensions database have been deprecated in favor of Firebase KTX")
     fun commit() {
         Preconditions.checkState(
                 childUpdates.size != 0,

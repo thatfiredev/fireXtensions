@@ -33,6 +33,7 @@ import com.google.firebase.database.ValueEventListener
  * This method will be called with a snapshot of the data at this location
  * casted to the given type.
  */
+@Deprecated("fireXtensions database have been deprecated in favor of Firebase KTX")
 inline fun <reified T> DatabaseReference.observe(
     crossinline action: (data: T?, error: DatabaseError?) -> Unit
 ) {
@@ -55,6 +56,7 @@ inline fun <reified T> DatabaseReference.observe(
  * This method will be called with a snapshot of a single change to
  * the data at this location, casted to the given type.
  */
+@Deprecated("fireXtensions database have been deprecated in favor of Firebase KTX")
 inline fun <reified T> DatabaseReference.observeSingleEvent(
     crossinline action: (data: T?, error: DatabaseError?) -> Unit
 ) {
@@ -77,6 +79,7 @@ inline fun <reified T> DatabaseReference.observeSingleEvent(
  * Add a listener for child events occurring at this location.
  * Casts each child to the specified type.
  */
+@Deprecated("fireXtensions database have been deprecated in favor of Firebase KTX")
 inline fun <reified T> DatabaseReference.observeChildren(
     crossinline action: (data: ArrayList<T>?, error: DatabaseError?) -> Unit
 ) {
@@ -103,6 +106,7 @@ inline fun <reified T> DatabaseReference.observeChildren(
  * Add a listener for a single child event occurring at this location.
  * Casts each child to the specified type.
  */
+@Deprecated("fireXtensions database have been deprecated in favor of Firebase KTX")
 inline fun <reified T> DatabaseReference.observeSingleChildrenEvent(
     crossinline action: (data: ArrayList<T>?, error: DatabaseError?) -> Unit
 ) {
