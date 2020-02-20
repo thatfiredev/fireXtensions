@@ -1,0 +1,4 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:io.github.rosariopfernandes.firextensions.analytics$analytics(com.google.firebase.ktx.Firebase, android.content.Context)io.github.rosariopfernandes.firextensions.analytics/com.google.firebase.ktx.-firebase/analytics.html
+io.github.rosariopfernandes.firextensions.analytics
