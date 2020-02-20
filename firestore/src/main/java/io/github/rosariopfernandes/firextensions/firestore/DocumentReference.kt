@@ -32,6 +32,7 @@ import com.google.firebase.firestore.Source
  * Returns the document at that location.
  * Automatically casts to the specified data type.
  */
+@Deprecated("fireXtensions firestore have been deprecated in favor of Firebase KTX")
 inline fun <reified T> DocumentReference.getDocument(
     crossinline action: (document: T?, exception: Exception?) -> Unit
 ) {
@@ -46,6 +47,7 @@ inline fun <reified T> DocumentReference.getDocument(
  * @param source Where to read the document from. Can be: Source.DEFAULT, Source.CACHE
  * or Source.SERVER
  */
+@Deprecated("fireXtensions firestore have been deprecated in favor of Firebase KTX")
 inline fun <reified T> DocumentReference.getDocument(
     source: Source,
     crossinline action: (document: T?, exception: Exception?) -> Unit
@@ -74,6 +76,7 @@ inline fun <reified T> DocumentReference.getDocument(
  * The lambda argument is an exception if the delete fails, or
  * null if it succeeds.
  */
+@Deprecated("fireXtensions firestore have been deprecated in favor of Firebase KTX")
 inline fun DocumentReference.delete(
     crossinline action: (exception: Exception?) -> Unit
 ) {
