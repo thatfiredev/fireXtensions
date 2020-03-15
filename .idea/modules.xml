@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/database/database.iml" filepath="$PROJECT_DIR$/database/database.iml" />
-      <module fileurl="file://$PROJECT_DIR$/fireXtensiosSample.iml" filepath="$PROJECT_DIR$/fireXtensiosSample.iml" />
-      <module fileurl="file://$PROJECT_DIR$/firestore/firestore.iml" filepath="$PROJECT_DIR$/firestore/firestore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/analytics/analytics.iml" filepath="$PROJECT_DIR$/analytics/analytics.iml" group="fireXtensiosSample/analytics" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="fireXtensiosSample/app" />
+      <module fileurl="file://$PROJECT_DIR$/database/database.iml" filepath="$PROJECT_DIR$/database/database.iml" group="fireXtensiosSample/database" />
+      <module fileurl="file://$PROJECT_DIR$/fireXtensiosSample.iml" filepath="$PROJECT_DIR$/fireXtensiosSample.iml" group="fireXtensiosSample" />
+      <module fileurl="file://$PROJECT_DIR$/firestore/firestore.iml" filepath="$PROJECT_DIR$/firestore/firestore.iml" group="fireXtensiosSample/firestore" />
     </modules>
   </component>
 </project>

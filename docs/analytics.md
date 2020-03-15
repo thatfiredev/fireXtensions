@@ -17,7 +17,7 @@ Step 2 - Add the dependency to your app's `build.gradle`:
 dependencies {
     // ...
 
-    implementation 'io.github.rosariopfernandes.fireXtensions:database:0.4.0'
+    implementation 'com.github.rosariopfernandes.fireXtensions:analytics:0.4.0'
 }
 ```
 
