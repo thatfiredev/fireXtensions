@@ -30,6 +30,7 @@ import com.google.firebase.database.DatabaseReference
  * Create a reference to an auto-generated child location and
  * set the given data.
  */
+@Deprecated("fireXtensions database have been deprecated in favor of Firebase KTX")
 fun DatabaseReference.push(obj: Any): String {
     val key = push().key!!
     child(key).setValue(obj)
@@ -41,6 +42,7 @@ fun DatabaseReference.push(obj: Any): String {
  * set the given data. The auto-generated key is the argument
  * of the lambda function.
  */
+@Deprecated("fireXtensions database have been deprecated in favor of Firebase KTX")
 inline fun DatabaseReference.push(
         obj: Any,
         crossinline action: (key: String?) -> Unit
@@ -63,6 +65,7 @@ inline fun DatabaseReference.push(
  * Returns the full path of the current reference.
  * The root is "/".
  */
+@Deprecated("fireXtensions database have been deprecated in favor of Firebase KTX")
 fun DatabaseReference.getFullPath(): String {
     var path = ref.key
     var parent = ref.parent

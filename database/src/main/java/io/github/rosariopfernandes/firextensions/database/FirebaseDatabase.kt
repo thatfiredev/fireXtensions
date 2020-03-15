@@ -35,6 +35,7 @@ import com.google.firebase.database.ValueEventListener
  * The boolean argument of the lambda function shows whether it's
  * connected (true) or not(false).
  */
+@Deprecated("fireXtensions database have been deprecated in favor of Firebase KTX")
 inline fun FirebaseDatabase.checkConnectionState(
     crossinline action: (isConnected: Boolean) -> Unit
 ) {
@@ -55,6 +56,7 @@ inline fun FirebaseDatabase.checkConnectionState(
  * Executes a group of operations atomically.
  * For supported operations, @see MultiPathUpdate
  */
+@Deprecated("fireXtensions database have been deprecated in favor of Firebase KTX")
 inline fun FirebaseDatabase.runMultiPathUpdate(
     action: MultiPathUpdate.() -> Unit
 ) {

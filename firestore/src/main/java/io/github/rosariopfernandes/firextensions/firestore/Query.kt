@@ -31,6 +31,7 @@ import com.google.firebase.firestore.Source
 /**
  * Returns a list of documents from the specified collection.
  */
+@Deprecated("fireXtensions firestore have been deprecated in favor of Firebase KTX")
 inline fun <reified T> Query.getDocuments(
     crossinline action: (documents: ArrayList<T>?, exception: Exception?) -> Unit
 ) {
@@ -44,6 +45,7 @@ inline fun <reified T> Query.getDocuments(
  * @param source where to read the documents from. Can be: Source.DEFAULT, Source.CACHE
  * or Source.SERVER
  */
+@Deprecated("fireXtensions firestore have been deprecated in favor of Firebase KTX")
 inline fun <reified T> Query.getDocuments(
     source: Source,
     crossinline action: (documents: ArrayList<T>?, exception: Exception?) -> Unit

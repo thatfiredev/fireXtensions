@@ -31,6 +31,7 @@ import com.google.firebase.firestore.WriteBatch
  * Executes a group of operations atomically.
  * Supported operations: set(), update() and delete().
  */
+@Deprecated("fireXtensions firestore have been deprecated in favor of Firebase KTX")
 inline fun FirebaseFirestore.writeBatch(
     action: WriteBatch.() -> Unit
 ) {
